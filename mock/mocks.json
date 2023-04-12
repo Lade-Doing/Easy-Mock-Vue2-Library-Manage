@@ -1,0 +1,148 @@
+{
+  "RECORDS": [
+    {
+      "_id": "63a346f3183f006f8842f05f",
+      "__v": "0",
+      "create_at": "21/12/2022 17:48:35.059",
+      "description": "图书信息数据分页",
+      "method": "post",
+      "mode": "{\r\n  \"code\": 200,\r\n  \"flag\": true,\r\n  \"messge\": \"查询成功\",\r\n  \"data\": {\r\n    \"total\": \"@integer(60,220)\", //响应的记录总数为60-220\r\n    \"rows|10\": [{ //当前查询的数据，每次查询10条，即模拟每次在60-220条记录里查询出10条记录\r\n      \"id|+1\": 1,\r\n      \"bookISBN\": /[0-9]{13}/,\r\n      \"bookName\": \"@ctitle(4,12)\",\r\n      \"author\": \"@cname\",\r\n      \"press|1\": ['清华大学出版社', '北京大学出版社', '北京理工大学出版社', '人民邮电出版社'],\r\n      \"publicationdate\": '@date(\"yyyy/MM/dd\")',\r\n      \"price\": \"@float(10,99,0,1)\",\r\n      \"quantity|50-1000\": 1,\r\n      \"bookType|1\": ['1', '2', '3', '4'],\r\n    }]\r\n  }\r\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/bookinfo/list/search/{page}/{size}"
+    },
+    {
+      "_id": "63a347e2183f006f8842f060",
+      "__v": "0",
+      "create_at": "21/12/2022 17:52:34.313",
+      "description": "登录认证",
+      "method": "post",
+      "mode": "{\n  \"code\":200,\n  \"flag\":true,\n  \"message\":'验证成功',\n  \"data\":\n    { \"token\":\"admin\" }\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/user/login"
+    },
+    {
+      "_id": "63a34886183f006f8842f061",
+      "__v": "0",
+      "create_at": "21/12/2022 17:55:18.611",
+      "description": "响应用户信息",
+      "method": "get",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": '成功获取用户信息',\n  \"data\": {\n    \"id|1-1000\": 1,\n    \"name\": \"@cname\",\n    \"roles\": [\"manager\"]\n  }\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/user/info/{token}"
+    },
+    {
+      "_id": "63a349b6183f006f8842f062",
+      "__v": "0",
+      "create_at": "21/12/2022 18:00:22.622",
+      "description": "退出系统",
+      "method": "post",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"退出成功\",\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/user/logout/{token}"
+    },
+    {
+      "_id": "63a428fb293d1709b892886b",
+      "__v": "0",
+      "create_at": "22/12/2022 09:52:59.542",
+      "description": "添加图书信息",
+      "method": "post",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"添加成功\"\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/addbookinfo"
+    },
+    {
+      "_id": "63a55ffbb6e8708054c59297",
+      "__v": "0",
+      "create_at": "23/12/2022 07:59:55.515",
+      "description": "根据id查询图书信息接口",
+      "method": "get",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": '查询成功',\n  \"data\": {\n    \"id\": 8,\n    \"bookISBN\": /[0-9]{13}/,\n    \"bookName\": \"Vue实战开发\",\n    \"author\": \"@cname\",\n    \"press|1\": ['清华大学出版社', '北京大学出版社', '北京理工大学出版社', '人民邮电出版社'],\n    \"publicationdate\": '@date(\"yyyy/MM/dd\")',\n    \"price\": \"@float(10,99,0,1)\",\n    \"quantity|50-1000\": 1,\n    \"bookType|1\": ['1', '2', '3', '4']\n  }\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/bookinfo/{id}"
+    },
+    {
+      "_id": "63a56071b6e8708054c59298",
+      "__v": "0",
+      "create_at": "23/12/2022 08:01:53.215",
+      "description": "根据id修改图书信息接口",
+      "method": "put",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"修改成功\"\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/bookinfo/{id}"
+    },
+    {
+      "_id": "63a56ecab6e8708054c59299",
+      "__v": "0",
+      "create_at": "23/12/2022 09:03:06.509",
+      "description": "根据id删除图书信息接口",
+      "method": "delete",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"删除成功\"\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/bookinfo/{id}"
+    },
+    {
+      "_id": "63a648e077ebea82dc4cc411",
+      "__v": "0",
+      "create_at": "24/12/2022 00:33:36.589",
+      "description": "出版社信息列表",
+      "method": "get",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"查询成功\",\n  \"data|20\": [{\n    \"id|+1\": 1,\n    \"pressName\": \"@ctitle(4,10)\",\n    \"pressAddress\": \"@county(true)\",\n    \"code\": \"@zip\",\n    \"chargePerson\": \"@cname\",\n    \"phone\": /1[35][0-9]{9}/\n  }]\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/press/list"
+    },
+    {
+      "_id": "63a64a1d77ebea82dc4cc412",
+      "__v": "0",
+      "create_at": "24/12/2022 00:38:53.555",
+      "description": "出版信息数据分页",
+      "method": "post",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"查询成功\",\n  \"data\": {\n    \"total\": \"@integer(30,120)\",\n    \"rows|10\": [{\n      \"id|+1\": 1,\n      \"pressName\": \"@ctitle(4,10)\",\n      \"pressAddress\": \"@county(true)\",\n      \"code\": \"@zip\",\n      \"chargePerson\": \"@cname\",\n      \"phone\": /1[35][0-9]{9}/\n    }]\n  }\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/press/list/search/{page}/{size}"
+    },
+    {
+      "_id": "63a66dae77ebea82dc4cc413",
+      "__v": "0",
+      "create_at": "24/12/2022 03:10:38.141",
+      "description": "校验旧密码是否正确",
+      "method": "post",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"旧密码正确\"\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/user/pwd"
+    },
+    {
+      "_id": "63a66e1277ebea82dc4cc414",
+      "__v": "0",
+      "create_at": "24/12/2022 03:12:18.842",
+      "description": "更新密码",
+      "method": "put",
+      "mode": "{\n  \"code\": 200,\n  \"flag\": true,\n  \"message\": \"密码修改成功\"\n}",
+      "parameters": "",
+      "project": "63a34613183f006f8842f05d",
+      "response_model": "",
+      "url": "/user/pwd"
+    }
+  ]
+}
